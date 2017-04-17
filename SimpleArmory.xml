@@ -1,0 +1,8 @@
+<Script file="SimpleArmory.lua"/> 
+<Frame name="SimpleArmory"> 
+    <Scripts> 
+        <OnLoad> 
+            SimpleArmory_OnLoad();
+        </OnLoad>
+    </Scripts>
+</Frame>

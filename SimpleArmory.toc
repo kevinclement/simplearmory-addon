@@ -1,0 +1,9 @@
+## Interface: 70100
+## Title: SimpleArmory
+## Version: 0.0.1
+## Notes: Addon to dump out db from game to export to simplearmory.com
+## Author: Marko (kevin)
+## SavedVariables: SimpleArmory
+
+JSON.lua
+SimpleArmory.lua
