@@ -11,6 +11,7 @@ frame:Hide()
 
 local function OnSlashCommand()
     GetAllMounts();
+    GetAllPets();
 end 
 
 local function OnLoad()
@@ -60,8 +61,8 @@ function GetAllMounts()
             mountObj["isCollected"] = isCollected;
             mountObj["mountID"] = mountID;
             mountObj["creatureDisplayID"] = creatureDisplayID;
-            mountObj["descriptionText"] = descriptionText;
-            mountObj["sourceText"] = sourceText;
+            --mountObj["descriptionText"] = descriptionText;
+            --mountObj["sourceText"] = sourceText;
             mountObj["isSelfMount"] = isSelfMount;
             mountObj["mountType"] = mountType;
 
@@ -70,6 +71,21 @@ function GetAllMounts()
 
     SimpleArmory.MountList = "[" .. table.concat(mountList,",") .. "]";
 end
+
+function GetAllPets()
+    printToChat("Getting all pets from game...");
+
+    local petList = {};
+    local total, owned = C_PetJournal.GetNumPets();
+    for i = 1,total do
+        --local petID, speciesID, isOwned, _, _, _, _, _, _, _, creatureID = C_PetJournal.GetPetInfoByIndex(i)
+        local petID, speciesID, owned, customName, level, favorite, isRevoked, speciesName, icon, petType, companionID, tooltip, description, isWild, canBattle, isTradeable, isUnique, obtainable = C_PetJournal.GetPetInfoByIndex(i);
+        
+        printToChat("petid: " .. petID .. " sid: " .. speciesID .. " create:" .. companionID);
+    end
+    printToChat("total: " .. total);
+end
+
 
 function printToChat(msg)
   DEFAULT_CHAT_FRAME:AddMessage(GREEN_FONT_COLOR_CODE.."SA: |r"..tostring(msg))
