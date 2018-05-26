@@ -1,11 +1,3 @@
-<Script file="SimpleArmory.lua"/> 
-<Frame name="SimpleArmory"> 
-    <Scripts> 
-        <OnLoad> 
-            SimpleArmory_OnLoad();
-        </OnLoad>
-    </Scripts>
-</Frame>
 <Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
   <GameTooltip name="SATETooltip" frameStrata="TOOLTIP" hidden="true" parent="UIParent" inherits="GameTooltipTemplate"/>
   <Frame name="SATECopyFrame" parent="UIParent" movable="true" enableMouse="true" inherits="DialogBoxFrame">

@@ -1,48 +1,78 @@
 --  SimpleArmory Helper Addon (by Marko)
 --
-SimpleArmory = {}
-SLASH_SIMPLEARMORY1 = '/sa';
-SLASH_RELOADUI1 = "/rl" -- elvui provides this, but I load only this addon while developing and its nice to have
+local _, SimpleArmory = ...
 
-local toJSON = newencoder(); -- initialize json encoder
-local frame = CreateFrame("Frame")
-SimpleArmory.Frame = frame
-frame:Hide()
+SimpleArmory = LibStub("AceAddon-3.0"):NewAddon(
+    SimpleArmory, "SimpleArmory", "AceConsole-3.0",
+    "AceEvent-3.0"
+)
+
+function SimpleArmory:OnInitialize()
+    SimpleArmory:RegisterChatCommand('sate2', 'ExportToys')
+    SimpleArmory:RegisterChatCommand('rl', 'ReloadUI')
+    SimpleArmory:RegisterChatCommand('simplearmory', 'PrintUsage')
+end
+
+function SimpleArmory:OnDisable()
+end
+
+function SimpleArmory:ReloadUI()
+    ReloadUI()
+end
+
+
+function SimpleArmory:PrintUsage()
+    DEFAULT_CHAT_FRAME:AddMessage("USAGE")
+end 
+
+function SimpleArmory:ExportToys()
+    --local output = SimpleArmory:GenerateToyString()
+    local output = "TEST4"
+  
+    SATECopyFrame:Show()
+    SATECopyFrameScroll:Show()
+    SATECopyFrameScrollText:Show()
+    SATECopyFrameScrollText:SetText(output)
+    SATECopyFrameScrollText:HighlightText()
+end
+
+-- SimpleArmory = {}
+-- SLASH_SIMPLEARMORY1 = '/sa';
+-- SLASH_RELOADUI1 = "/rl" -- elvui provides this, but I load only this addon while developing and its nice to have
+
+-- local toJSON = newencoder(); -- initialize json encoder
+-- local frame = CreateFrame("Frame")
+-- SimpleArmory.Frame = frame
+-- frame:Hide()
 
 local function OnSlashCommand()
-    SATECopyFrame:Show()
-  SATECopyFrameScroll:Show()
-  SATECopyFrameScrollText:Show()
-  SATECopyFrameScrollText:SetText("TEST3")
-  SATECopyFrameScrollText:HighlightText()
-
     GetAllMounts();
     GetAllPets();
 end 
 
-local function OnLoad()
-    -- hookup slash commands
-    SlashCmdList["SIMPLEARMORY"] = OnSlashCommand;
-    SlashCmdList["RELOADUI"] = ReloadUI;
-end
+-- local function OnLoad()
+--     -- hookup slash commands
+--     SlashCmdList["SIMPLEARMORY"] = OnSlashCommand;
+--     SlashCmdList["RELOADUI"] = ReloadUI;
+-- end
 
-local function OnEvent(self, event, ...)
-    if (event == "CHAT_MSG_ADDON") then
-    elseif (event == "PLAYERREAGENTBANKSLOTS_CHANGED") then
-    end
-end
+-- local function OnEvent(self, event, ...)
+--     if (event == "CHAT_MSG_ADDON") then
+--     elseif (event == "PLAYERREAGENTBANKSLOTS_CHANGED") then
+--     end
+-- end
 
-frame:RegisterEvent("ADDON_LOADED")
-frame:SetScript("OnEvent", function(self, event, arg1)
-    if (arg1 == "SimpleArmory") then
-        frame:UnregisterEvent("ADDON_LOADED")
-        OnLoad();
+-- frame:RegisterEvent("ADDON_LOADED")
+-- frame:SetScript("OnEvent", function(self, event, arg1)
+--     if (arg1 == "SimpleArmory") then
+--         frame:UnregisterEvent("ADDON_LOADED")
+--         OnLoad();
 
-        -- hook up all other events
-        frame:SetScript("OnEvent", OnEvent)
-        frame:RegisterEvent("CHAT_MSG_ADDON")
-    end
-end)
+--         -- hook up all other events
+--         frame:SetScript("OnEvent", OnEvent)
+--         frame:RegisterEvent("CHAT_MSG_ADDON")
+--     end
+-- end)
 
 function GetAllMounts()
     printToChat("Getting all mounts from game...");
@@ -91,7 +121,6 @@ function GetAllPets()
     end
     printToChat("total: " .. total);
 end
-
 
 function printToChat(msg)
   DEFAULT_CHAT_FRAME:AddMessage(GREEN_FONT_COLOR_CODE.."SA: |r"..tostring(msg))

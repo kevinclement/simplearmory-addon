@@ -15,5 +15,6 @@ libs\AceEvent-3.0\AceEvent-3.0.xml
 #@end-no-lib-strip@
 
 JSON.lua
-SimpleArmory.lua
 SimpleArmory.xml
+SimpleArmory.lua
+
