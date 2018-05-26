@@ -10,6 +10,12 @@ SimpleArmory.Frame = frame
 frame:Hide()
 
 local function OnSlashCommand()
+    SATECopyFrame:Show()
+  SATECopyFrameScroll:Show()
+  SATECopyFrameScrollText:Show()
+  SATECopyFrameScrollText:SetText("TEST3")
+  SATECopyFrameScrollText:HighlightText()
+
     GetAllMounts();
     GetAllPets();
 end 
