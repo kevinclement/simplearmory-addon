@@ -8,9 +8,9 @@ SimpleArmory = LibStub("AceAddon-3.0"):NewAddon(
 )
 
 function SimpleArmory:OnInitialize()
-    SimpleArmory:RegisterChatCommand('sate2', 'ExportToys')
-    SimpleArmory:RegisterChatCommand('rl', 'ReloadUI')
-    SimpleArmory:RegisterChatCommand('simplearmory', 'PrintUsage')
+    SimpleArmory:RegisterChatCommand('sa', 'ParseCommand')
+    SimpleArmory:RegisterChatCommand('simplearmory', 'ParseCommand')
+    SimpleArmory:RegisterChatCommand('rl', 'ReloadUI') -- elvui provides this, but I load only this addon while developing and its nice to have
 end
 
 function SimpleArmory:OnDisable()
@@ -20,9 +20,22 @@ function SimpleArmory:ReloadUI()
     ReloadUI()
 end
 
+function SimpleArmory:ParseCommand(args)
+    local command, commandArg1 = self:GetArgs(args, 2)
+    if not command then
+        SimpleArmory:PrintUsage()
+    else 
+        if command == "toys" then
+            SimpleArmory:ExportToys()
+        else
+            SimpleArmory:PrintUsage()
+        end 
+    end
+    
+end
 
 function SimpleArmory:PrintUsage()
-    DEFAULT_CHAT_FRAME:AddMessage("USAGE")
+    SimpleArmory:Print("USAGE")
 end 
 
 function SimpleArmory:ExportToys()
@@ -38,7 +51,7 @@ end
 
 -- SimpleArmory = {}
 -- SLASH_SIMPLEARMORY1 = '/sa';
--- SLASH_RELOADUI1 = "/rl" -- elvui provides this, but I load only this addon while developing and its nice to have
+-- SLASH_RELOADUI1 = "/rl" 
 
 -- local toJSON = newencoder(); -- initialize json encoder
 -- local frame = CreateFrame("Frame")
