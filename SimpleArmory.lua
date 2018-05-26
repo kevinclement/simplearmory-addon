@@ -36,7 +36,8 @@ function SimpleArmory:ParseCommand(args)
 end
 
 function SimpleArmory:PrintUsage()
-    SimpleArmory:Print("USAGE")
+    SimpleArmory:Print("USAGE:")
+    SimpleArmory:Print("  /sa toys - exports toys")
 end 
 
 function SimpleArmory:ExportToys()
