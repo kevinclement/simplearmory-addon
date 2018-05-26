@@ -1,6 +1,6 @@
 <Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-  <GameTooltip name="SATETooltip" frameStrata="TOOLTIP" hidden="true" parent="UIParent" inherits="GameTooltipTemplate"/>
-  <Frame name="SATECopyFrame" parent="UIParent" movable="true" enableMouse="true" inherits="DialogBoxFrame">
+  <GameTooltip name="SATooltip" frameStrata="TOOLTIP" hidden="true" parent="UIParent" inherits="GameTooltipTemplate"/>
+  <Frame name="SACopyFrame" parent="UIParent" movable="true" enableMouse="true" inherits="DialogBoxFrame">
   <Size>
     <AbsDimension x="700" y="450"/>
   </Size>
@@ -36,7 +36,7 @@
             <AbsDimension x="0" y="-30"/>
           </Offset>
         </Anchor>
-          <Anchor point="BOTTOM" relativeTo="SATECopyFrameButton" relativePoint="TOP">
+          <Anchor point="BOTTOM" relativeTo="SACopyFrameButton" relativePoint="TOP">
               <Offset>
               <AbsDimension x="0" y="5"/>
               </Offset>

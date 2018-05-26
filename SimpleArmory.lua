@@ -42,7 +42,7 @@ end
 function SimpleArmory:ExportToys()
     local output = SimpleArmory:GetAllToys()
 
-    SATECopyFrame:Show()
+    SACopyFrame:Show()
     SATECopyFrameScroll:Show()
     SATECopyFrameScrollText:Show()
     SATECopyFrameScrollText:SetText(output)
