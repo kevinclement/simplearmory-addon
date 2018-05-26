@@ -41,6 +41,7 @@ function SimpleArmory:PrintUsage()
 end 
 
 function SimpleArmory:ExportToys()
+    SimpleArmory:Print("Getting all toys from game...")
     local output = SimpleArmory:GetAllToys()
 
     SACopyFrame:Show()
@@ -99,7 +100,29 @@ function SimpleArmory:GetAllPets()
 end
 
 function SimpleArmory:GetAllToys()
-    return "TEST5"
+    output = "[";
+
+    C_ToyBox.SetAllSourceTypeFilters(true);
+    C_ToyBox.SetCollectedShown(true);
+    C_ToyBox.SetUncollectedShown(true);
+    C_ToyBox.SetFilterString("");
+
+    local NumToys = C_ToyBox.GetNumToys();
+
+    local first = true
+    for i = NumToys, 1, -1 do
+        local idx = C_ToyBox.GetToyFromIndex(i);
+        if PlayerHasToy(idx) then
+            if first == false then
+            output = output .. ", ";
+            else
+            first = false;
+            end
+            output = output .. tostring(idx);
+        end
+    end
+    output = output .. "]";
+    return output
 end
 
 function printToChat(msg)
