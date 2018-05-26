@@ -44,10 +44,10 @@ function SimpleArmory:ExportToys()
     local output = SimpleArmory:GetAllToys()
 
     SACopyFrame:Show()
-    SATECopyFrameScroll:Show()
-    SATECopyFrameScrollText:Show()
-    SATECopyFrameScrollText:SetText(output)
-    SATECopyFrameScrollText:HighlightText()
+    SACopyFrameScroll:Show()
+    SACopyFrameScrollText:Show()
+    SACopyFrameScrollText:SetText(output)
+    SACopyFrameScrollText:HighlightText()
 end
 
 function SimpleArmory:GetAllMounts()
