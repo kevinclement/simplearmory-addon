@@ -1,5 +1,6 @@
 --  SimpleArmory Helper Addon (by Marko)
 --
+local toJSON = newencoder(); -- initialize json encoder
 local _, SimpleArmory = ...
 
 SimpleArmory = LibStub("AceAddon-3.0"):NewAddon(
@@ -39,9 +40,8 @@ function SimpleArmory:PrintUsage()
 end 
 
 function SimpleArmory:ExportToys()
-    --local output = SimpleArmory:GenerateToyString()
-    local output = "TEST4"
-  
+    local output = SimpleArmory:GetAllToys()
+
     SATECopyFrame:Show()
     SATECopyFrameScroll:Show()
     SATECopyFrameScrollText:Show()
@@ -49,45 +49,7 @@ function SimpleArmory:ExportToys()
     SATECopyFrameScrollText:HighlightText()
 end
 
--- SimpleArmory = {}
--- SLASH_SIMPLEARMORY1 = '/sa';
--- SLASH_RELOADUI1 = "/rl" 
-
--- local toJSON = newencoder(); -- initialize json encoder
--- local frame = CreateFrame("Frame")
--- SimpleArmory.Frame = frame
--- frame:Hide()
-
-local function OnSlashCommand()
-    GetAllMounts();
-    GetAllPets();
-end 
-
--- local function OnLoad()
---     -- hookup slash commands
---     SlashCmdList["SIMPLEARMORY"] = OnSlashCommand;
---     SlashCmdList["RELOADUI"] = ReloadUI;
--- end
-
--- local function OnEvent(self, event, ...)
---     if (event == "CHAT_MSG_ADDON") then
---     elseif (event == "PLAYERREAGENTBANKSLOTS_CHANGED") then
---     end
--- end
-
--- frame:RegisterEvent("ADDON_LOADED")
--- frame:SetScript("OnEvent", function(self, event, arg1)
---     if (arg1 == "SimpleArmory") then
---         frame:UnregisterEvent("ADDON_LOADED")
---         OnLoad();
-
---         -- hook up all other events
---         frame:SetScript("OnEvent", OnEvent)
---         frame:RegisterEvent("CHAT_MSG_ADDON")
---     end
--- end)
-
-function GetAllMounts()
+function SimpleArmory:GetAllMounts()
     printToChat("Getting all mounts from game...");
 
     local mountList = {};
@@ -121,7 +83,7 @@ function GetAllMounts()
     SimpleArmory.MountList = "[" .. table.concat(mountList,",") .. "]";
 end
 
-function GetAllPets()
+function SimpleArmory:GetAllPets()
     printToChat("Getting all pets from game...");
 
     local petList = {};
@@ -133,6 +95,10 @@ function GetAllPets()
         printToChat("petid: " .. petID .. " sid: " .. speciesID .. " create:" .. companionID);
     end
     printToChat("total: " .. total);
+end
+
+function SimpleArmory:GetAllToys()
+    return "TEST5"
 end
 
 function printToChat(msg)
