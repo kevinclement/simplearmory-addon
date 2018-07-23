@@ -65,9 +65,6 @@
       --noinspection GlobalSelf
       self:StopMovingOrSizing()
   </OnMouseUp>
-  <OnEscapePressed>
-      self:Hide()
-  </OnEscapePressed>
   </Scripts>
   </Frame>
 </Ui>

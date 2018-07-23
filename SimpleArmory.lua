@@ -49,6 +49,9 @@ function SimpleArmory:ExportToys()
     SACopyFrameScrollText:Show()
     SACopyFrameScrollText:SetText(output)
     SACopyFrameScrollText:HighlightText()
+    SACopyFrameScrollText:SetScript("OnEscapePressed", function(self)
+      SACopyFrame:Hide()
+    end)
 end
 
 function SimpleArmory:GetAllMounts()
