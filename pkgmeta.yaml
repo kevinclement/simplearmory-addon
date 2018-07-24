@@ -1,0 +1,4 @@
+package-as: SimpleArmory
+ignore:
+    - README.md
+    - pkgmeta.yaml
