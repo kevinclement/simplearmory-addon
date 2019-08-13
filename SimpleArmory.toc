@@ -1,6 +1,6 @@
-## Interface: 80100
+## Interface: 80200
 ## Title: SimpleArmory
-## Version: 0.0.6
+## Version: 0.0.7
 ## Notes: Addon companion for simplearmory.com
 ## Author: Marko (kevin)
 ## SavedVariables: SimpleArmory
