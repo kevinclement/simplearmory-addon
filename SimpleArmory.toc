@@ -1,6 +1,6 @@
-## Interface: 90001
+## Interface: 90205
 ## Title: SimpleArmory
-## Version: 0.0.9
+## Version: 0.0.10
 ## Notes: Addon companion for simplearmory.com
 ## Author: Marko (kevin)
 ## SavedVariables: SimpleArmory
