@@ -118,6 +118,7 @@ function SimpleArmory:GetToyList()
     SimpleArmory:Print("Getting all toys from game...")
 
     C_ToyBox.SetAllSourceTypeFilters(true);
+    C_ToyBox.SetAllExpansionTypeFilters(true);
     C_ToyBox.SetCollectedShown(true);
     C_ToyBox.SetUncollectedShown(true);
     C_ToyBox.SetUnusableShown(true);
